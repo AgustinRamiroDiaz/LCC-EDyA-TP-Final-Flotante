@@ -1,1 +1,0 @@
-cls & gcc TSP.c camino.c held_karp.c lectura.c matriz.c salida.c & a
