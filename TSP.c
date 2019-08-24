@@ -31,6 +31,9 @@ int begin = clock();
 	fclose(archivoGrafo);
 
 
+	//la matriz Held-Karp tiene 2^(n-1) filas que representan 
+	//todos los subconjuntos de los n-1 vertices excluyendo el primer vertice
+	//y tiene n-1 columnas que representan los n-1 vertices excluyendo el primer vertice
 	int cantidadFilasHK = (1 << (n-1)) - 1,
 		cantidadColumnasHK = n - 1;
 
