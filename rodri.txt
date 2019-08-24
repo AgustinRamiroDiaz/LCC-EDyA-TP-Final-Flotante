@@ -1,0 +1,7 @@
+Ciudades
+a, b, c, d
+Costos
+a,b,3
+a,c,7
+b,d,6
+c,d,5

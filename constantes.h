@@ -1,0 +1,6 @@
+#define LONG_MAX_PALABRA 50
+#define CANT_MAX_VERTICES 50
+#define INT_MAX 10000000
+
+#define NOMBRE_ARCHIVO_ENTRADA "entrada5.txt"
+#define NOMBRE_ARCHIVO_SALIDA "salida.txt"
