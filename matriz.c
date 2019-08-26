@@ -35,3 +35,12 @@ void LlenarMatrizN(int** matriz, int m, int n, int x)
 		}
 	}
 }
+
+void LiberarMatriz(int** matriz, int cantidadFilas)
+{
+	for (int fila = 0; fila < cantidadFilas; fila++)
+	{
+		free(matriz[fila]);
+	}
+	free(matriz);
+}

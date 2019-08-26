@@ -38,7 +38,8 @@ int LlenarMatrizVertices(int** matrizVertices, int** matrizHeldKarp, int** matri
 			minimoCamino = distanciaActual;
 		}
 	}
-	printf("%d\n", minimoCamino);
+
+	/* printf("%d\n", minimoCamino); */
 
 	return verticeFinal;
 }
@@ -52,5 +53,4 @@ void LlenarCaminoVertices(int* caminoVertices, int** matrizVertices, int n)
 		verticesARecorrer -= 1 << caminoVertices[vertice - 1];
 		caminoVertices[vertice] = matrizVertices[verticesARecorrer][caminoVertices[vertice - 1]];
 	}
-
 }

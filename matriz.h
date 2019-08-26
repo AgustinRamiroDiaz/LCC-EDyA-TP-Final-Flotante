@@ -10,4 +10,6 @@ void ImprimirMatriz(int** matriz, int m, int n);
 //llena la matriz con "x"
 void LlenarMatrizN(int** matriz, int m, int n, int x);
 
+//libera la memoria reservada para una matriz
+void LiberarMatriz(int** matriz, int cantidadFilas);
 #endif

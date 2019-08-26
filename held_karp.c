@@ -1,5 +1,4 @@
 #include "held_karp.h"
-#include "matriz.h"
 #include "constantes.h"
 
 #include <stdio.h>
@@ -7,6 +6,7 @@
 
 int MatrizHeldKarpMN(int** matrizHeldKarp, int** matrizAdyacente, int** matrizVertices, int n, int fila, int columna)
 {
+
 	if (matrizHeldKarp[fila][columna])
 	{
 		return matrizHeldKarp[fila][columna];

@@ -34,8 +34,8 @@ int begin = clock();
 	//la matriz Held-Karp tiene 2^(n-1) filas que representan 
 	//todos los subconjuntos de los n-1 vertices excluyendo el primer vertice
 	//y tiene n-1 columnas que representan los n-1 vertices excluyendo el primer vertice
-	int cantidadFilasHK = (1 << (n-1)) - 1,
-		cantidadColumnasHK = n - 1;
+	int cantidadFilasHK = (1 << (n-1)) - 1 + 1,
+		cantidadColumnasHK = n - 1 + 1;
 
 	//la fila n representa el numero n en binario que representa el conjunto s
 	//la columna n representa el vertice n sin contar el primer vertice
@@ -49,6 +49,8 @@ clock_t comienzo = clock();
 
 	caminoVertices[0] = LlenarMatrizVertices(matrizVertices, matrizHeldKarp, matrizAdyacente, n);
 	
+	LiberarMatriz(matrizHeldKarp, cantidadFilasHK);
+
 clock_t fin = clock();
 double tiempoParcial = (double)(fin - comienzo)/CLOCKS_PER_SEC;
 printf("tiempo parcial: %lf\n", tiempoParcial);
@@ -56,7 +58,12 @@ printf("tiempo parcial: %lf\n", tiempoParcial);
 	
 	LlenarCaminoVertices(caminoVertices, matrizVertices, n);
 
+	LiberarMatriz(matrizVertices, cantidadFilasHK);
+
 	GenerarArchivoSalida(vertices, matrizAdyacente, caminoVertices, n);
+
+	LiberarMatriz(matrizAdyacente, n);
+	
 
 /* clock_t end = clock();
 double tiempo = (double)(end - begin)/CLOCKS_PER_SEC;

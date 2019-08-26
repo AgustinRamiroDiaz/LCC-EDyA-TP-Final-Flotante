@@ -15,9 +15,10 @@ void GenerarArchivoSalida(char vertices[][LONG_MAX_PALABRA], int** matrizAdyacen
 
 	fclose(archivo);
 
-
+/*  */
 	for (int i = 0; i < n - 1; i++) {
 		printf("%s ", vertices[caminoVertices[i] + 1]);
 	}
 	printf("\n");
+/*  */
 }
