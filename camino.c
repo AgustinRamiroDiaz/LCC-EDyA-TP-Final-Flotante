@@ -6,11 +6,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int LlenarMatrizVertices(int** matrizVertices, int** matrizHeldKarp, int** matrizAdyacente, int n)
+int LlenarMatrizVertices(int** matrizVertices, int** matrizAdyacente, int n)
 {
+		//la matriz Held-Karp tiene 2^(n-1) filas que representan 
+	//todos los subconjuntos de los n-1 vertices excluyendo el primer vertice
+	//y tiene n-1 columnas que representan los n-1 vertices excluyendo el primer vertice
 	int cantidadFilasHK = (1 << (n-1)) - 1,
-        cantidadColumnasHK = n - 1,
-        distanciaActual,
+		cantidadColumnasHK = n - 1;
+
+	//la fila n representa el numero n en binario que representa el conjunto s
+	//la columna n representa el vertice n sin contar el primer vertice
+	int** matrizHeldKarp = InstanciarMatriz(cantidadFilasHK, cantidadColumnasHK);
+
+	int distanciaActual,
         subsetActual,
         minimoCamino = INT_MAX,
         subsetsPosibles = cantidadFilasHK,
@@ -21,7 +29,6 @@ int LlenarMatrizVertices(int** matrizVertices, int** matrizHeldKarp, int** matri
 	//lleno la primera fila de HK con los valores de la matriz adyacente
 	for (int columna = 0; columna < (n - 1); columna++)
 	{
-printf("we");
 		matrizHeldKarp[0][columna] = matrizAdyacente[0][columna + 1];
 	}
 	//calculo el ultimo nivel llamando a la funcion recursiva
@@ -40,6 +47,8 @@ printf("we");
 	}
 
 	/* printf("%d\n", minimoCamino); */
+
+	LiberarMatriz(matrizHeldKarp, cantidadFilasHK);
 
 	return verticeFinal;
 }
