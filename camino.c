@@ -21,9 +21,9 @@ int LlenarMatrizVertices(int** matrizVertices, int** matrizHeldKarp, int** matri
 	//lleno la primera fila de HK con los valores de la matriz adyacente
 	for (int columna = 0; columna < (n - 1); columna++)
 	{
+printf("we");
 		matrizHeldKarp[0][columna] = matrizAdyacente[0][columna + 1];
 	}
-
 	//calculo el ultimo nivel llamando a la funcion recursiva
 	for (int verticeAExcluir = 0; subsetsPosibles; verticeAExcluir++, subsetsPosibles = (subsetsPosibles >> 1))
 	{

@@ -30,9 +30,19 @@ ya que solo nos interesa el costo de g(a, {b, c, d, ...})
 
 
 
+-Comando de compilacion:
+gcc main.c camino.c held_karp.c lectura.c matriz.c salida.c -o main
 
--Comando:
-gcc TSP.c camino.c held_karp.c lectura.c matriz.c salida.c -o TSP-HeldKarp
+-Comando ejecucion Linux:
+./main archivoEntrada archivoSalida
+
+-Comando ejecucion Windows:
+main.exe archivoEntrada archivoSalida
+
+
+
+-Comando Personal:
+cls & gcc main.c camino.c held_karp.c lectura.c matriz.c salida.c -o main & main.exe entrada5.txt salida.txt
 
 
 -Bibliografia:
