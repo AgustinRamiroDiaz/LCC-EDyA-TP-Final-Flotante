@@ -16,10 +16,9 @@ int main(int argc, char const* argv[])
 	int  n, **matrizAdyacente;
 	char vertices[CANT_MAX_VERTICES][LONG_MAX_PALABRA];
 	char const * nombreArchivoSalida;
-
+printf("lsafdoasig");
 	//n representa la cantidad de ciudades
-	n = LecturaDeDatos(argc, argv, nombreArchivoSalida, vertices, &matrizAdyacente);
-
+	n = LecturaDeDatos(argv, nombreArchivoSalida, vertices, &matrizAdyacente);
 	//el tamaño de la matriz Held-Karp
 	int cantidadFilasHK = (1 << (n-1)) - 1,
 		cantidadColumnasHK = n - 1;
@@ -28,6 +27,7 @@ int main(int argc, char const* argv[])
 	//de la matrizHK para conseguir el camino de menor costo
 	int** matrizVertices = InstanciarMatriz(cantidadFilasHK, cantidadColumnasHK);
 
+printf("%s", nombreArchivoSalida);
 	//camino de los vertices en orden a recorrer sin los extremos que serian el nodo de partida
 	int caminoVertices[n - 1];
 

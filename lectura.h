@@ -14,6 +14,6 @@ void LeerAristas(FILE * archivoGrafo, int** matrizAdyacente, char vertices[][LON
 //lee y guarda toda la informacion de nombreArchivoSalida, vertices, matrizAdyacente
 //a partir de los argumentos pasados al main y de los archivos.
 //retorna la cantidad de ciudades leidas del archivo de entrada
-int LecturaDeDatos(int argc, char const* argv[], char const* nombreArchivoSalida, char vertices[][LONG_MAX_PALABRA], int*** matrizAdyacente);
+int LecturaDeDatos(char const* argv[], char const* nombreArchivoSalida, char vertices[][LONG_MAX_PALABRA], int*** matrizAdyacente);
 
 #endif

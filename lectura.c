@@ -1,5 +1,3 @@
-#include <assert.h>
-
 #include "lectura.h"
 #include "string.h"
 #include "matriz.h"
@@ -41,16 +39,15 @@ void LeerAristas(FILE * archivoGrafo, int ** matrizAdyacente, char vertices[][LO
 	while (!feof(archivoGrafo));
 }
 
-int LecturaDeDatos(int argc, char const* argv[], char const* nombreArchivoSalida, char vertices[][LONG_MAX_PALABRA], int*** matrizAdyacente)
+int LecturaDeDatos(char const* argv[], char const* nombreArchivoSalida, char vertices[][LONG_MAX_PALABRA], int*** matrizAdyacente)
 {
     char const * nombreArchivoEntrada;
+printf("hola");
 
-    if (argc > 2) {
-        nombreArchivoEntrada = argv[1];
-		nombreArchivoSalida = argv[2];
-    } else {
-        assert(0 && "Debe ingresar los nombres de los archivos de entrada y salida");
-    }
+	nombreArchivoEntrada = argv[1];
+printf("%s", nombreArchivoEntrada);
+	nombreArchivoSalida = argv[2];
+printf("%s", nombreArchivoSalida);
 
     FILE * archivoGrafo = fopen(nombreArchivoEntrada, "r");
 
