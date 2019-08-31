@@ -57,9 +57,11 @@ int LecturaDeDatos(int argc, char const* argv[], char const* nombreArchivoSalida
 	//n representa la cantidad de vertices del grafo
 	int n = LeerCiudades(archivoGrafo, vertices);
 
+	//la matriz de adyacencia que representa los costos entre vertices
 	*matrizAdyacente = InstanciarMatriz(n, n);
-	LlenarMatrizN(*matrizAdyacente, n, n, INT_MAX);
+	LlenarMatrizN(*matrizAdyacente, n, n, CAMINO_IMPOSIBLE);
 
+	//leo las aristas
 	LeerAristas(archivoGrafo, *matrizAdyacente, vertices);
 
 	fclose(archivoGrafo);

@@ -45,12 +45,20 @@ main.exe archivoEntrada archivoSalida
 cls & gcc main.c camino.c held_karp.c lectura.c matriz.c salida.c -o main & main.exe entrada5.txt salida.txt
 
 
+-Notas:
+	-Las ciudades se codifican con un indice numerico desde 0 a n - 1 y se mapean con el array de los nombres de las ciudades
+	-Para la implementacion de conjuntos utilice numeros que en binario tal que cada bit representa una ciudad
+	-Cree la matrizHeldKarp y la matrizVertices de un tamaño mas chico para ser mas eficiente con el uso de memoria omitiendo la primer ciudad
+	-No hice verificaciones exhaustivas ya que me centre en la funcionalidad del algoritmo
+	-Utilice memoria estatica para los nombres de los vertices porque pienso que no amerita ir reagrandando la memoria para este caso particular donde sabemos el maximo de ciudades
+
+
 -Bibliografia:
 
 Held-Karp algorithm:
 	https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm
 
-Implementaci�n de Held-Karp en C con el metodo Bottom Up:
+Implementacion de Held-Karp en C con el metodo Bottom Up:
 	https://www.quora.com/Are-there-any-good-examples-of-the-Held-Karp-algorithm-in-C++-Hard-to-find-example-code-to-solve-the-traveling-salesman-problem-Everyone-wants-to-just-talk-about-theory-and-not-show-how-to-actually-do-it-What-is-the-big-secret
 
 What Is Dynamic Programming and How To Use It:

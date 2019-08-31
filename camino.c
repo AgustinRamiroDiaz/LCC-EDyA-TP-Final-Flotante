@@ -3,12 +3,13 @@
 #include "constantes.h"
 #include "matriz.h"
 
+#include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 int LlenarMatrizVertices(int** matrizVertices, int** matrizAdyacente, int n)
 {
-		//la matriz Held-Karp tiene 2^(n-1) filas que representan 
+	//la matriz Held-Karp tiene 2^(n-1) filas que representan 
 	//todos los subconjuntos de los n-1 vertices excluyendo el primer vertice
 	//y tiene n-1 columnas que representan los n-1 vertices excluyendo el primer vertice
 	int cantidadFilasHK = (1 << (n-1)) - 1,
@@ -20,10 +21,12 @@ int LlenarMatrizVertices(int** matrizVertices, int** matrizAdyacente, int n)
 
 	int distanciaActual,
         subsetActual,
+		distanciaHK,
         minimoCamino = INT_MAX,
         subsetsPosibles = cantidadFilasHK,
 		verticeFinal;
 
+	//lleno la matriz de 0
 	LlenarMatrizN(matrizHeldKarp, cantidadFilasHK, cantidadColumnasHK, 0);
 
 	//lleno la primera fila de HK con los valores de la matriz adyacente
@@ -35,18 +38,21 @@ int LlenarMatrizVertices(int** matrizVertices, int** matrizAdyacente, int n)
 	for (int verticeAExcluir = 0; subsetsPosibles; verticeAExcluir++, subsetsPosibles = (subsetsPosibles >> 1))
 	{
 		subsetActual = cantidadFilasHK - (1 << verticeAExcluir);
-		distanciaActual = 
-			MatrizHeldKarpMN(matrizHeldKarp, matrizAdyacente, matrizVertices, n, subsetActual, verticeAExcluir) 
-			+ matrizAdyacente[0][verticeAExcluir + 1];
-
-		if (distanciaActual < minimoCamino)
+		distanciaHK = MatrizHeldKarpMN(matrizHeldKarp, matrizAdyacente, matrizVertices, n, subsetActual, verticeAExcluir);
+		
+		if ((distanciaHK != CAMINO_IMPOSIBLE) && (matrizAdyacente[0][verticeAExcluir + 1] != CAMINO_IMPOSIBLE))
 		{
-			verticeFinal = verticeAExcluir;
-			minimoCamino = distanciaActual;
+			distanciaActual = distanciaHK + matrizAdyacente[0][verticeAExcluir + 1];
+
+			if (distanciaActual < minimoCamino)
+			{
+				verticeFinal = verticeAExcluir;
+				minimoCamino = distanciaActual;
+			}
 		}
 	}
 
-	/* printf("%d\n", minimoCamino); */
+	printf("%d\n", minimoCamino);
 
 	LiberarMatriz(matrizHeldKarp, cantidadFilasHK);
 

@@ -1,21 +1,22 @@
 #include "held_karp.h"
 #include "constantes.h"
 
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 int MatrizHeldKarpMN(int** matrizHeldKarp, int** matrizAdyacente, int** matrizVertices, int n, int fila, int columna)
 {
-
 	if (matrizHeldKarp[fila][columna])
 	{
 		return matrizHeldKarp[fila][columna];
 	}
 
-	if (fila & (1 << columna)) return INT_MAX;
+	if (fila & (1 << columna)) return CAMINO_IMPOSIBLE;
 
 	int subsetActual,
 		distanciaActual,
+		distanciaHK,
 		subsetsPosibles = fila,
 		minimoCamino = INT_MAX;
 
@@ -24,17 +25,23 @@ int MatrizHeldKarpMN(int** matrizHeldKarp, int** matrizAdyacente, int** matrizVe
 		if (subsetsPosibles & 1)
 		{
 			subsetActual = fila - (1 << verticeAExcluir);
-			distanciaActual = 
-				MatrizHeldKarpMN(matrizHeldKarp, matrizAdyacente, matrizVertices, n, subsetActual, verticeAExcluir) 
-				+ matrizAdyacente[columna + 1][verticeAExcluir + 1];
+			distanciaHK = MatrizHeldKarpMN(matrizHeldKarp, matrizAdyacente, matrizVertices, n, subsetActual, verticeAExcluir);
 
-			if (distanciaActual < minimoCamino)
+			if ((distanciaHK != CAMINO_IMPOSIBLE) && (matrizAdyacente[columna + 1][verticeAExcluir + 1] != CAMINO_IMPOSIBLE))
 			{
-				minimoCamino = distanciaActual;
-				matrizVertices[fila][columna] = verticeAExcluir;
+				distanciaActual = distanciaHK + matrizAdyacente[columna + 1][verticeAExcluir + 1];
+
+				if (distanciaActual < minimoCamino)
+				{
+					minimoCamino = distanciaActual;
+					matrizVertices[fila][columna] = verticeAExcluir;
+				}
 			}
 		}
 	}
+
+	if (minimoCamino == INT_MAX)
+		minimoCamino = CAMINO_IMPOSIBLE;
 
 	matrizHeldKarp[fila][columna] = minimoCamino;
 
