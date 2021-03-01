@@ -1,4 +1,4 @@
-Para resolver el problema utilice el algoritmo Held-Karp con una implementaci�n recursiva. 
+Para resolver el problema utilice el algoritmo Held-Karp con una implementación recursiva. 
 La implementacion mas eficiente es la Bottom-Up ya que llena la matriz Held-Karp a medida que se recorre, 
 pero opte por la forma recursiva para darle otro enfoque al problema.
 
@@ -30,42 +30,31 @@ ya que solo nos interesa el costo de g(a, {b, c, d, ...})
 
 
 
--Comando de compilacion:
-gcc main.c camino.c held_karp.c lectura.c matriz.c salida.c -o main
-
--Comando ejecucion Linux:
-./main archivoEntrada archivoSalida
-
--Comando ejecucion Windows:
-main.exe archivoEntrada archivoSalida
-
-
-
--Comando Personal:
-cls & gcc main.c camino.c held_karp.c lectura.c matriz.c salida.c -o main & main.exe entrada5.txt salida.txt
+* Comando de compilacion:
+	* gcc main.c camino.c held_karp.c lectura.c matriz.c salida.c -o main
+* Comando ejecucion Linux:
+	* ./main archivoEntrada archivoSalida
+* Comando ejecucion Windows:
+	* main.exe archivoEntrada archivoSalida
+* Comando Personal:
+	* cls & gcc main.c camino.c held_karp.c lectura.c matriz.c salida.c -o main & main.exe entrada5.txt salida.txt
 
 
--Notas:
-	-Las ciudades se codifican con un indice numerico desde 0 a n - 1 y se mapean con el array de los nombres de las ciudades
-	-Para la implementacion de conjuntos utilice numeros que en binario tal que cada bit representa una ciudad
-	-Cree la matrizHeldKarp y la matrizVertices de un tamaño mas chico para ser mas eficiente con el uso de memoria omitiendo la primer ciudad
-	-No hice verificaciones exhaustivas ya que me centre en la funcionalidad del algoritmo
-	-Utilice memoria estatica para los nombres de los vertices porque pienso que no amerita ir reagrandando la memoria para este caso particular donde sabemos el maximo de ciudades
+Notas:
+* Las ciudades se codifican con un indice numerico desde 0 a n - 1 y se mapean con el array de los nombres de las ciudades
+* Para la implementacion de conjuntos utilice numeros que en binario tal que cada bit representa una ciudad
+* Cree la matrizHeldKarp y la matrizVertices de un tamaño mas chico para ser mas eficiente con el uso de memoria omitiendo la primer ciudad
+* Utilice memoria estatica para los nombres de los vertices porque pienso que no amerita ir reagrandando la memoria para este caso particular donde sabemos el maximo de ciudades
 
 
--Bibliografia:
+Bibliografia:
 
-Held-Karp algorithm:
-	https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm
+* [Held-Karp algorithm](https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm)
 
-Implementacion de Held-Karp en C con el metodo Bottom Up:
-	https://www.quora.com/Are-there-any-good-examples-of-the-Held-Karp-algorithm-in-C++-Hard-to-find-example-code-to-solve-the-traveling-salesman-problem-Everyone-wants-to-just-talk-about-theory-and-not-show-how-to-actually-do-it-What-is-the-big-secret
+* [Implementacion de Held-Karp en C con el metodo Bottom Up](https://www.quora.com/Are-there-any-good-examples-of-the-Held-Karp-algorithm-in-C++-Hard-to-find-example-code-to-solve-the-traveling-salesman-problem-Everyone-wants-to-just-talk-about-theory-and-not-show-how-to-actually-do-it-What-is-the-big-secret)
 
-What Is Dynamic Programming and How To Use It:
-	https://www.youtube.com/watch?v=vYquumk4nWw 
+* [What Is Dynamic Programming and How To Use It](https://www.youtube.com/watch?v=vYquumk4nWw)
 
-Traveling Salesperson Problem - Dynamic Programming:
-	https://www.youtube.com/watch?v=XaXsJJh-Q5Y
+* [Traveling Salesperson Problem - Dynamic Programming](https://www.youtube.com/watch?v=XaXsJJh-Q5Y)
 
-Dynamic Programming I: Fibonacci, Shortest Paths:
-	https://www.youtube.com/watch?v=OQ5jsbhAv_M
+* [Dynamic Programming I: Fibonacci, Shortest Paths](https://www.youtube.com/watch?v=OQ5jsbhAv_M)
